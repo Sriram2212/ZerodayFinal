@@ -16,7 +16,7 @@ const app = express();
 // CORS configuration for production
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://your-frontend-domain.vercel.app', 'https://zeroday-frontend.vercel.app']
+    ? ['https://zero-dayfrontend-gswdxxii3-sriram2212s-projects.vercel.app']
     : ['http://localhost:3000'],
   credentials: true
 }));
