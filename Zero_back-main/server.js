@@ -28,7 +28,13 @@ app.use(cors({
   credentials: true
 }));
 
-
+app.use((err, req, res, next) => {
+  if (err.message === 'Not allowed by CORS') {
+    res.status(403).send('CORS error: This origin is not allowed');
+  } else {
+    next(err);
+  }
+});
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/upload', express.static(path.join(__dirname, 'upload')));
